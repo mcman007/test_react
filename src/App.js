@@ -1,29 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Header from './Header';
-import Footer from './Footer';
+//import logo from './logo.svg';
+//import './App.css';
+import TodoInput from "./TodoInput";
+import Todolist from "./Todolist";
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      currentTime : 0
+      todoItems : ["Hello" , "World"]
     }
-    this.handleFooterClicked = this.handleFooterClicked.bind(this);
-  }
-
-  handleFooterClicked(time) {
-    this.setState({currentTime : time});
   }
   render() {
-    let { currentTime } = this.state;
+    let {todoItems} = this.state;
     return (
       <div>
-      <Header currentUser="Kiatkumjorn"/>
-      <div>CurrentTime : {currentTime}</div>
-      <Footer onTimerClick={this.handleFooterClicked} />
+        <TodoInput />
+        <Todolist items = {todoItems} />
       </div>
     );
   }
